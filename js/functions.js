@@ -6,32 +6,20 @@ checkLengthString('проверяемая строка', 20);
 checkLengthString('проверяемая строка', 18);
 checkLengthString('проверяемая строка', 10);
 
-console.log(checkLengthString('проверяемая строка', 20),
-checkLengthString('проверяемая строка', 18),
-checkLengthString('проверяемая строка', 10))
+// console.log(checkLengthString('проверяемая строка', 20),
+// checkLengthString('проверяемая строка', 18),
+// checkLengthString('проверяемая строка', 10))
 
 
-function isPalindrom1(str){
+function isPalindrom(str){
   return str.toLowerCase().replaceAll(' ', '') === str.split('').reverse().join('').toLowerCase().replaceAll(' ', '');//решение через массив
 }
-function isPalindrom2(str){
-  let newStr = '';
-  for (let i = str.length; i >= 0; i--) {
-    newStr += str[i];
-  }
-  return newStr
-}
 
 
-isPalindrom2('топот');
-isPalindrom2('ДовОд');
-isPalindrom2('Кекс');
-isPalindrom2('Лёша на полке клопа нашёл');
-
-console.log(isPalindrom2('топот'),
-isPalindrom2('ДовОд'),
-isPalindrom2('Кекс'),
-isPalindrom2('Лёша на полке клопа нашёл'));
+// console.log(isPalindrom('топот'),
+// isPalindrom('ДовОд'),
+// isPalindrom('Кекс'),
+// isPalindrom('Лёша на полке клопа нашёл'));
 
 function isNumber(s) {
   str = parseInt(s.replace(/[^\d]/g, ''));
@@ -41,8 +29,8 @@ function isNumber(s) {
 isNumber('ss1f4d');
 isNumber('1ssfd 12');
 
-console.log(isNumber('s1sfd'),
-isNumber('s1sfd 1.2'));
+// console.log(isNumber('s1sfd'),
+// isNumber('s1sfd 1.2'));
 
 
 function makeStr(str, min, char) {
@@ -61,8 +49,10 @@ function makeStr(str, min, char) {
   return newStr
 }
 
-console.log(makeStr('1', 2, '0'),
-makeStr('1', 4, '0'),
-makeStr('q', 4, 'werty'),
-makeStr('q', 4, 'we'),
-makeStr('qwerty', 4, '0'));
+// console.log(makeStr('1', 2, '0'),
+// makeStr('1', 4, '0'),
+// makeStr('q', 4, 'werty'),
+// makeStr('q', 4, 'we'),
+// makeStr('qwerty', 4, '0'));
+
+

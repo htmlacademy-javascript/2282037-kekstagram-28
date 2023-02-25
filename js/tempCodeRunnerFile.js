@@ -7,6 +7,10 @@ let comments = ['Всё отлично!',
 ]
 
 
+
+
+
+
 function getRandomValue(min,max){
   let number = Math.floor(Math.random() * ((max - min + 1 ))) + min;
   return number
@@ -28,21 +32,21 @@ function createIdGenerator (min,max) {
   };
 }
 
-let generatorId = createIdGenerator(1, 25);
-let generatorUrl = createIdGenerator(1, 25);
-let generatorIdComments = createIdGenerator(1, 8000000000);
+let generatorId =  createIdGenerator(1, 25);
+let generatorUrl =  createIdGenerator(1, 25);
+let generatorIdComments =  createIdGenerator(1, Infinity);
 
 let createDescriptionPhoto =() => {
   return {
-    id: generatorId(),
-    url: `photos/${generatorUrl()}.jpg`,
-    description: 'Тут очень интересное описание',
-    likes: getRandomValue(15,200),
-    comments: {
-      id: generatorIdComments(),
-      avatar: `img/avatar-${getRandomValue(1,6)}.svg`,
-      message: comments[getRandomValue(0, comments.length-1)],
-      name: 'Артём',
+  id: generatorId(),
+  url: `photos/${generatorUrl()}.jpg`,
+  description: 'Тут очень интересное описание',
+  likes: getRandomValue(15,200),
+  comments: {
+    id: generatorIdComments(),
+    avatar: `img/avatar-${getRandomValue(1,6)}.svg`,
+    message: comments[getRandomValue(0, comments.length-1)],
+    name: 'Артём',
     }
   }
 }
