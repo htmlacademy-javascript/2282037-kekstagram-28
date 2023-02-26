@@ -4,7 +4,13 @@ let comments = ['Всё отлично!',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-]
+];
+
+let namesUsers = ['Вадим','Генри','Кирилл','Кукумбер',
+'кот Борис','Димыч','Мухамед','Женя','Валюшка007',
+'Гарольд','Кумар','Галина Ивановна','яСамая','Люда',
+'Аленка','ТаНя','Кристофер Робин','Зита','Гита',
+'Гульчитай','Жади','Лукас','Матроскин',];
 
 
 function getRandomValue(min,max){
@@ -27,6 +33,7 @@ function createIdGenerator (min,max) {
     return uniqueId;
   };
 }
+let getValue = (elem) => {return elem[getRandomValue(0, elem.length-1)]}
 
 let generatorId = createIdGenerator(1, 25);
 let generatorUrl = createIdGenerator(1, 25);
@@ -41,8 +48,8 @@ let createDescriptionPhoto =() => {
     comments: {
       id: generatorIdComments(),
       avatar: `img/avatar-${getRandomValue(1,6)}.svg`,
-      message: comments[getRandomValue(0, comments.length-1)],
-      name: 'Артём',
+      message: getValue(comments),
+      name: getValue(namesUsers),
     }
   }
 }
@@ -50,3 +57,5 @@ let createDescriptionPhoto =() => {
 let arrayDescriptionPhoto = Array.from({length:25}, createDescriptionPhoto)
 
 console.log(arrayDescriptionPhoto);
+
+
