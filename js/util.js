@@ -10,7 +10,7 @@ const createIdGenerator = function (min,max) {
   return function () {
     let uniqueId = getRandomValue(min,max);
     if (uniqueIdArray.length >= (max - min + 1)) {
-      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
+      console.error(`Перебраны все числа из диапазона от ${min} до ${max}`);
       return null;
     }
     while (uniqueIdArray.includes(uniqueId)){

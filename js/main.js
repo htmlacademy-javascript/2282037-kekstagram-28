@@ -1,4 +1,4 @@
-import  {arrayDescriptionPhoto} from './data.js';
+import {arrayDescriptionPhoto} from './data.js';
 
 
 console.log(arrayDescriptionPhoto());

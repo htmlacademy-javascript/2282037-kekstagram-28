@@ -9,14 +9,13 @@ const comments = ['Всё отлично!',
 ];
 
 const namesUsers = ['Вадим','Генри','Кирилл','Кукумбер',
-'кот Борис','Димыч','Мухамед','Женя','Валюшка007',
-'Гарольд','Кумар','Галина Ивановна','яСамая','Люда',
-'Аленка','ТаНя','Кристофер Робин','Зита','Гита',
-'Гульчитай','Жади','Лукас','Матроскин',];
+  'кот Борис','Димыч','Мухамед','Женя','Валюшка007',
+  'Гарольд','Кумар','Галина Ивановна','яСамая','Люда',
+  'Аленка','ТаНя','Кристофер Робин','Зита','Гита',
+  'Гульчитай','Жади','Лукас','Матроскин',];
 
-const getValue = (elem) => {
-  return elem[getRandomValue(0, elem.length - 1)];
-};
+const getValue = (elem) => elem[getRandomValue(0, elem.length - 1)];
+
 
 const generatorId = createIdGenerator(1, 25);
 const generatorUrl = createIdGenerator(1, 25);
@@ -34,9 +33,9 @@ const createDescriptionPhoto = () => {
       message: getValue(comments),
       name: getValue(namesUsers),
     },
-  }
+  };
 };
 
 const arrayDescriptionPhoto = () => Array.from({length:25}, createDescriptionPhoto);
 
-export {arrayDescriptionPhoto}
+export {arrayDescriptionPhoto};
