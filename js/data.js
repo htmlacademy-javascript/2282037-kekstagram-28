@@ -19,7 +19,7 @@ const getValue = (elem) => elem[getRandomValue(0, elem.length - 1)];
 
 const generatorId = createIdGenerator(1, 25);
 const generatorUrl = createIdGenerator(1, 25);
-const generatorIdComments = createIdGenerator(1, 8000000000);
+const generatorIdComments = createIdGenerator(1, 80000000);
 
 const createDescriptionPhoto = () => {
   return {
