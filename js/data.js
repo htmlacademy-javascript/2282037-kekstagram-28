@@ -33,9 +33,9 @@ const createDescriptionPhoto = () => {
       message: getValue(comments),
       name: getValue(namesUsers),
     },
-  };
+  }
 };
 
 const arrayDescriptionPhoto = () => Array.from({length:25}, createDescriptionPhoto);
 
-export {arrayDescriptionPhoto};
+export {arrayDescriptionPhoto}
