@@ -1,4 +1,5 @@
 import {arrayDescriptionPhoto} from './data.js';
+import { renderContentPhoto } from './rendering.js';
 
 
-console.log(arrayDescriptionPhoto());
+renderContentPhoto(arrayDescriptionPhoto)
