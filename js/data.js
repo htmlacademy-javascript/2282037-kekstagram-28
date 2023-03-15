@@ -22,29 +22,29 @@ const generatorUrl = createIdGenerator(1, 25);
 const generatorIdComments = createIdGenerator(1, 8000000000);
 
 const getCommentsData = function (elem) {
-  const comments = [];
-  const item = getRandomValue(1, elem.length);
-  const uniqComment = createIdGenerator(0, elem.length - 1)
+  const commentsPhoto = [];
+  const item = getRandomValue(2, elem.length);
+  const uniqComment = createIdGenerator(0, elem.length - 1);
   for (let i = 0; i <= item - 1; i++) {
-    const commentId = uniqComment()
-    comments.push(elem[commentId])
+    const commentId = uniqComment();
+    commentsPhoto.push(elem[commentId]);
   }
-  return comments;
+  return commentsPhoto;
 };
 
 
-const createDescriptionPhoto = () =>  ({
-    id: generatorId(),
-    url: `photos/${generatorUrl()}.jpg`,
-    description: 'Тут очень интересное описание',
-    likes: getRandomValue(15,200),
-    comments: {
-      id: generatorIdComments(),
-      avatar: `img/avatar-${getRandomValue(1,6)}.svg`,
-      message: getCommentsData(comments),
-      name: getValue(namesUsers),
-    },
-  });
+const createDescriptionPhoto = () => ({
+  id: generatorId(),
+  url: `photos/${generatorUrl()}.jpg`,
+  description: 'Тут очень интересное описание',
+  likes: getRandomValue(15,200),
+  comments: {
+    id: generatorIdComments(),
+    avatar: `img/avatar-${getRandomValue(1,6)}.svg`,
+    message: getCommentsData(comments),
+    name: getValue(namesUsers),
+  },
+});
 
 const arrayDescriptionPhoto = () => Array.from({length:25}, createDescriptionPhoto);
 
