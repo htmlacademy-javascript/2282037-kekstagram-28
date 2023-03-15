@@ -2,7 +2,7 @@ import { isEscapeKey } from './util.js';
 
 const renderFullPizePhoto = function (photo){
   const photoList = photo;
-
+  const scroll = document.querySelector('body');
   const pictures = document.querySelectorAll('.picture');
   const fullSizePhoto = document.querySelector('.big-picture');
   const bigPictureImg = fullSizePhoto.querySelector('img');
@@ -21,14 +21,15 @@ const renderFullPizePhoto = function (photo){
       fullSizePhoto.classList.remove('hidden');
       socialCommentCount.classList.add('hidden');
       commentsLoader.classList.add('hidden');
+      scroll.classList.add('modal-open');
 
       socialCaption.textContent = photoList[i].description;
-
       bigPictureImg.src = photoList[i].url;
       likes.textContent = photoList[i].likes;
       commentsCount.textContent = photoList[i].comments.message.length;
       for (let j = 0; j < socialComment.length; j++) {
         socialComment[j].querySelector('.social__picture').src = photoList[i].comments.avatar;
+        socialComment[j].querySelector('.social__picture').alt = photoList[i].comments.name;
         socialComment[j].querySelector('.social__text').textContent = photoList[i].comments.message[j];
       }
     });
@@ -37,10 +38,12 @@ const renderFullPizePhoto = function (photo){
 
   pictureCancel.addEventListener('click', () => {
     fullSizePhoto.classList.add('hidden');
+    scroll.classList.remove('modal-open');
   });
   document.addEventListener('keydown', (evt) => {
     if(isEscapeKey(evt)){
       fullSizePhoto.classList.add('hidden');
+      scroll.classList.remove('modal-open');
     }
   });
 };
