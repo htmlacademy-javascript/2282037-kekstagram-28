@@ -1,5 +1,7 @@
 import {arrayDescriptionPhoto} from './data.js';
 import { renderContentPhoto } from './rendering.js';
+import { renderFullPizePhoto } from './render_full-size_photo.js';
 
-
-renderContentPhoto(arrayDescriptionPhoto)
+const data = arrayDescriptionPhoto();
+renderContentPhoto(data);
+renderFullPizePhoto(data);
