@@ -1,7 +1,6 @@
-import {arrayDescriptionPhoto} from './data.js';
-import { renderContentPhoto } from './rendering.js';
-import { renderFullPizePhoto } from './render_full-size_photo.js';
+import { getPictures } from './data.js';
+import { renderGallery } from './galery.js';
+// import { renderFullPizePhoto } from './render_full-size_photo.js';
 
-const data = arrayDescriptionPhoto();
-renderContentPhoto(data);
-renderFullPizePhoto(data);
+// const data = arrayDescriptionPhoto();
+renderGallery(getPictures());
