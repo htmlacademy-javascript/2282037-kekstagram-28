@@ -17,10 +17,6 @@ const createComment = ({avatar, message, name,}) => {
                           <p class="social__text">${message}</p>`;
   comment.classList.add('social__comment');
 
-  // console.log(comment);
-  // comment.querySelector('.social__picture').src = avatar;
-  // comment.querySelector('.social__picture').alt = name;
-  // comment.querySelector('.social__text').textContent = message;
 
   return comment;
 };
@@ -78,7 +74,6 @@ const showBigPicture = (data) => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal_open');
   commentsLoader.classList.add('hidden');
-  commentCount.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
 
   renderPictureDetails(data);
