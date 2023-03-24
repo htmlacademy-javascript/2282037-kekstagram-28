@@ -8,6 +8,7 @@ const renderGallery = (pictures) => {
     if(!thumbnail) {
       return;
     }
+    evt.preventDefault();
 
     const picture = pictures.find((item) => item.id === +thumbnail.dataset.thumbnailId);
     showBigPicture(picture);

@@ -1,6 +1,7 @@
 import { getPictures } from './data.js';
 import { renderGallery } from './galery.js';
-// import { renderFullPizePhoto } from './render_full-size_photo.js';
+import { checkForm } from './form.js';
 
 // const data = arrayDescriptionPhoto();
 renderGallery(getPictures());
+checkForm();

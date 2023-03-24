@@ -45,13 +45,13 @@ const renderComments = () => {
 
 const hideBigPicture = () => {
   bigPicture.classList.add('hidden');
-  body.classList.remove('modal_open');
+  body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
   commentsShow = 0;
 };
 
 function onDocumentKeydown(evt){
-  if(isEscapeKey){
+  if(isEscapeKey(evt.key)){
     evt.preventDefault();
     hideBigPicture();
   }
@@ -72,7 +72,7 @@ const onCommentsLoaderClick = () => renderComments();
 
 const showBigPicture = (data) => {
   bigPicture.classList.remove('hidden');
-  body.classList.add('modal_open');
+  body.classList.add('modal-open');
   commentsLoader.classList.add('hidden');
   document.addEventListener('keydown', onDocumentKeydown);
 
