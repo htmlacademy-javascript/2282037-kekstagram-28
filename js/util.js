@@ -19,7 +19,7 @@ const createIdGenerator = function (min,max) {
   };
 };
 
-const isEscapeKey = (evt) => evt.key === 'Escape';
+const isEscapeKey = (key) => key === 'Escape';
 
 export {getRandomValue, createIdGenerator, isEscapeKey};
 
