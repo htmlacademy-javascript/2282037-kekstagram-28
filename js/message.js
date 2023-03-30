@@ -1,39 +1,50 @@
+import { isEscapeKey } from './util.js';
 
 const getTemplate = (selector) => {
   const thumbnailTemplate = document.querySelector(`#${selector}`).content.querySelector(`.${selector}`);
   const thumbnail = thumbnailTemplate.cloneNode(true);
-  const container = document.querySelector('main');
+  const container = document.body;
   container.append(thumbnail);
 
   return container;
 };
 
+
 const addEvent = (selector) => {
   const button = document.querySelector(`.${selector}__button`);
-  const successInner = document.querySelector(`.${selector}__inner`);
+  const success = document.querySelector(`.${selector}`);
 
   button.addEventListener('click', () => {
-    document.querySelector(`.${selector}`).remove();
+    if (success) {
+      success.remove();
+    }
   });
-  successInner.addEventListener('click', () => {
-    document.querySelector(`.${selector}`).remove();
+  success.addEventListener('click', (evt) => {
+    if (evt.target.closest(`.${selector}__inner`)) {
+      return;
+    }
+    if (success) {
+      success.remove();
+    }
   });
+
+  document.addEventListener('keydown',(evt) => {
+    if (isEscapeKey(evt.key)) {
+      success.remove();
+    }
+  });
+
 };
 
-const deleteTemplate = (selector) => {
-  addEvent(selector);
-};
 
 const showSuccessMessage = (selector) => {
   getTemplate(selector);
-  deleteTemplate(selector);
   addEvent(selector);
 };
 
 
 const showErrorMessage = (selector) => {
   getTemplate(selector);
-  deleteTemplate(selector);
   addEvent(selector);
 };
 

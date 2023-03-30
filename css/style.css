@@ -1414,7 +1414,7 @@ main {
   position: absolute;
   z-index: 100;
   top: 0;
-  left: 0;
+  left: 0;right: 0;
   padding: 30px;
   text-align: center;
   font-size: 30px;
