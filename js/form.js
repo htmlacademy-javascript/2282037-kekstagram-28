@@ -1,10 +1,12 @@
 import { isEscapeKey } from './util.js';
 import { resetScale } from './scale.js';
 import { resetEffects } from './effect.js';
+import { changeAdress } from './preview.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const TAG_ERROR_TEXT = 'Неправильно заполнены хэштеги';
+
 
 const submitButtonText = {
   IDLE: 'Отправить',
@@ -57,6 +59,7 @@ const onCancelButtonClick = () => {
   hideModal();
 };
 const onFileInputChange = () => {
+  changeAdress();
   showModal();
 };
 

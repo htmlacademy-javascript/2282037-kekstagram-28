@@ -1,4 +1,3 @@
-
 import { renderGallery } from './gallery.js';
 import { setOnFormSubmit, hideModal } from './form.js';
 import { getData, sendData } from './api.js';
