@@ -14,9 +14,14 @@ const addEvent = (selector) => {
   const button = document.querySelector(`.${selector}__button`);
   const success = document.querySelector(`.${selector}`);
 
+  function deleteMessageAndEvent () {
+    success.remove();
+    document.removeEventListener('keydown', removeSuccess);
+  }
+
   button.addEventListener('click', () => {
     if (success) {
-      success.remove();
+      deleteMessageAndEvent();
     }
   });
   success.addEventListener('click', (evt) => {
@@ -24,23 +29,24 @@ const addEvent = (selector) => {
       return;
     }
     if (success) {
-      success.remove();
+      deleteMessageAndEvent();
     }
   });
 
-  document.addEventListener('keydown',(evt) => {
+  function removeSuccess (evt) {
     if (isEscapeKey(evt.key)) {
-      success.remove();
+      deleteMessageAndEvent();
     }
-  });
+  }
+  document.addEventListener('keydown', removeSuccess);
 
 };
 
 
-const showSuccessMessage = (selector) => {
+function showSuccessMessage (selector){
   getTemplate(selector);
   addEvent(selector);
-};
+}
 
 
 const showErrorMessage = (selector) => {

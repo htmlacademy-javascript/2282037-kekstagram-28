@@ -17,8 +17,9 @@ setOnFormSubmit(async (data) => {
 });
 
 try {
+  const timeoutDelay = 500;
   const data = await getData();
-  const debouncedRenderGallery = debounce(renderGallery);
+  const debouncedRenderGallery = debounce(renderGallery, timeoutDelay);
   init(data, debouncedRenderGallery);
   renderGallery(getFilteredPictures());
 } catch (err) {
