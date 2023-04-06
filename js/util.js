@@ -1,5 +1,6 @@
+const TIME_INTERVAL = 5000;
+
 const isEscapeKey = (key) => key === 'Escape';
-const timeInterval = 5000;
 const showAlert = (message) => {
   const alert = document.createElement('div');
   alert.classList.add('alert');
@@ -8,7 +9,7 @@ const showAlert = (message) => {
 
   setTimeout(() => {
     alert.remove();
-  }, timeInterval);
+  }, TIME_INTERVAL);
 };
 
 function debounce (callback, timeoutDelay) {
