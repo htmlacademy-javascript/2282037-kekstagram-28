@@ -1,4 +1,6 @@
 import { isEscapeKey } from './util.js';
+import { onDocumentKeydown } from './form.js';
+
 
 const getTemplate = (selector) => {
   const thumbnailTemplate = document.querySelector(`#${selector}`).content.querySelector(`.${selector}`);
@@ -12,33 +14,35 @@ const getTemplate = (selector) => {
 
 const addEvent = (selector) => {
   const button = document.querySelector(`.${selector}__button`);
-  const success = document.querySelector(`.${selector}`);
+  const response = document.querySelector(`.${selector}`);
 
   function deleteMessageAndEvent () {
-    success.remove();
-    document.removeEventListener('keydown', removeSuccess);
+    response.remove();
+    document.removeEventListener('keydown', removeResponse);
   }
 
   button.addEventListener('click', () => {
-    if (success) {
+    if (response) {
       deleteMessageAndEvent();
     }
   });
-  success.addEventListener('click', (evt) => {
+  response.addEventListener('click', (evt) => {
     if (evt.target.closest(`.${selector}__inner`)) {
       return;
     }
-    if (success) {
+    if (response) {
       deleteMessageAndEvent();
     }
   });
 
-  function removeSuccess (evt) {
+  function removeResponse (evt) {
     if (isEscapeKey(evt.key)) {
+      evt.preventDefault();
       deleteMessageAndEvent();
+      document.addEventListener('keydown', onDocumentKeydown);
     }
   }
-  document.addEventListener('keydown', removeSuccess);
+  document.addEventListener('keydown', removeResponse);
 
 };
 
@@ -52,6 +56,8 @@ function showSuccessMessage (selector){
 const showErrorMessage = (selector) => {
   getTemplate(selector);
   addEvent(selector);
+  document.removeEventListener('keydown', onDocumentKeydown);
 };
+
 
 export { showSuccessMessage, showErrorMessage };

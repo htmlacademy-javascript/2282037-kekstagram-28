@@ -8,7 +8,7 @@ const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const TAG_ERROR_TEXT = 'Неправильно заполнены хэштеги';
 
 
-const submitButtonText = {
+const SubmitButtonText = {
   IDLE: 'Отправить',
   SENDING: 'Отправляю',
 };
@@ -90,11 +90,11 @@ const onFormSubmit = (evt) => {
 
 const blockSubmitButton = () => {
   submitButton.disabled = true;
-  submitButton.textContent = submitButtonText.SENDING;
+  submitButton.textContent = SubmitButtonText.SENDING;
 };
 const unblockSubmitButton = () => {
   submitButton.disabled = false;
-  submitButton.textContent = submitButtonText.IDLE;
+  submitButton.textContent = SubmitButtonText.IDLE;
 };
 
 const setOnFormSubmit = (cb) => {
@@ -117,4 +117,4 @@ function checkForm() {
 }
 
 
-export { checkForm, setOnFormSubmit, hideModal };
+export { checkForm, setOnFormSubmit, hideModal, onDocumentKeydown };
