@@ -39,7 +39,9 @@ const addEvent = (selector) => {
     if (isEscapeKey(evt.key)) {
       evt.preventDefault();
       deleteMessageAndEvent();
-      document.addEventListener('keydown', onDocumentKeydown);
+      if(selector === 'error'){
+        document.addEventListener('keydown', onDocumentKeydown);
+      }
     }
   }
   document.addEventListener('keydown', removeResponse);
